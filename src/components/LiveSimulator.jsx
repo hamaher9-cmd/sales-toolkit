@@ -152,7 +152,7 @@ Respond with ONLY the coaching note as plain prose. No headers, no formatting, n
   try {
     const prospectReply = await callAnthropicWithHistory(systemPrompt, [
       { role: 'user', content: initialUserMessage }
-    ])
+    ], "opus")
 
     const newMessages = [
       { role: 'system', content: systemPrompt, hidden: true, disposition: rolledDisposition },
@@ -190,7 +190,7 @@ Respond with ONLY the coaching note as plain prose. No headers, no formatting, n
     .map(m => ({ role: m.role, content: m.content }))
 
   try {
-    const prospectReply = await callAnthropicWithHistory(systemPrompt, conversationHistory)
+    const prospectReply = await callAnthropicWithHistory(systemPrompt, conversationHistory, "opus")
 
     const assistantMsg = {
       role: 'assistant',
